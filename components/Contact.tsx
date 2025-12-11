@@ -20,7 +20,7 @@ export default function Contact() {
       <div className="flex flex-wrap gap-6 justify-center">
         {/* Email */}
         <a
-          href="mailto:maros@example.com"
+          href="mailto:maros1chmel@gmail.com"
           className="flex items-center gap-3 px-6 py-3 
                      bg-[#d6d6d6] dark:bg-[#222] 
                      text-[#161616] dark:text-gray-200 
@@ -36,7 +36,7 @@ export default function Contact() {
 
         {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/in/yourprofile"
+          href="https://www.linkedin.com/in/maro%C5%A1-chme%C4%BE-883b21280/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 px-6 py-3 
@@ -54,7 +54,7 @@ export default function Contact() {
 
         {/* GitHub */}
         <a
-          href="https://github.com/yourprofile"
+          href="https://github.com/MarroosSK"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 px-6 py-3 
