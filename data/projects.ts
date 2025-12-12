@@ -113,24 +113,4 @@ export const projects = [
       github: "#",
     },
   },
-
-  //   {
-  //     id: "lexiflow",
-  //     title: "LexiFlow (WIP)",
-  //     description:
-  //       "AI-powered full-stack web app that generates personalized reading material to help users improve vocabulary and communication skills.",
-  //     type: "web",
-  //     stack: ["Next.js", "TypeScript", "Tailwind", "Supabase", "OpenAI API"],
-  //     features: [
-  //       "AI-generated reading materials",
-  //       "User authentication with Clerk",
-  //       "Supabase as database and backend",
-  //       "Clean modern UI built with Tailwind",
-  //     ],
-  //     preview: "/images/lexiflow-preview.png",
-  //     link: {
-  //       live: null,
-  //       github: "#",
-  //     },
-  //   },
 ];

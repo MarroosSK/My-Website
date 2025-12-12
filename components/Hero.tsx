@@ -84,7 +84,7 @@ export default function Hero() {
               <span>Next.js</span>
             </p>
 
-            {/* View Projects button – rovnaký dizajn ako Contact linky */}
+            {/* View Projects button */}
             <button
               onClick={scrollToProjects}
               className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-full 

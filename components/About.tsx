@@ -12,7 +12,6 @@ export default function About() {
   const currentTheme =
     theme === "system" ? systemTheme ?? "light" : theme ?? "light";
 
-  // Init Rive animácií s autoplay: false
   const { rive: riveLight, RiveComponent: RiveLight } = useRive({
     src: "/idk7.riv",
     autoplay: false,

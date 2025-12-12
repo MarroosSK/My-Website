@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* 🧩 Preload Rive animácií pre rýchlejšie načítanie */}
+        {/* Preload Rive animácií pre rýchlejšie načítanie */}
         <link
           rel="preload"
           href="/hero1.riv"
@@ -44,7 +44,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* ⚙️ Môžeš sem neskôr pridať aj favicon, manifest, meta tagy, atď. */}
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
