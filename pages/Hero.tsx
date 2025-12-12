@@ -1,22 +1,16 @@
 "use client";
 
+import HeroButton from "@/components/buttons/HeroButton";
+import { heroData } from "@/data/hero";
 import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 import { ChevronDown, Folder } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import React from "react";
 
 export default function Hero() {
-  const { theme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
 
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setMounted(true));
-
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  const currentTheme =
-    theme === "system" ? systemTheme ?? "light" : theme ?? "light";
+  const currentTheme = theme ?? "dark";
 
   const { RiveComponent: BackgroundRive } = useRive({
     src: "/hero1.riv",
@@ -38,10 +32,9 @@ export default function Hero() {
 
   const scrollToNext = () =>
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
-    projectsSection?.scrollIntoView({ behavior: "smooth" });
-  };
+
+  const scrollToProjects = () =>
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="relative w-screen h-screen overflow-hidden font-inter">
@@ -55,7 +48,7 @@ export default function Hero() {
                      flex flex-col justify-center gap-4 sm:gap-6 lg:gap-8 pt-10 sm:pt-10 lg:pt-0"
         >
           <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-light text-[#454545] dark:text-[#E4E4E4] opacity-90 pl-0 sm:pl-4 lg:pl-6">
-            Hi, I&apos;m
+            {heroData.greeting}
           </h2>
 
           {/* Rive animácia podľa témy */}
@@ -63,40 +56,35 @@ export default function Hero() {
             key={currentTheme}
             className="w-full h-[140px] sm:h-[180px] md:h-[220px]"
           >
-            {mounted &&
-              (currentTheme === "dark" ? (
-                <RiveDark className="w-full h-full lg:h-[220px]" />
-              ) : (
-                <RiveLight className="w-full h-full lg:h-[220px]" />
-              ))}
+            {currentTheme === "dark" ? (
+              <RiveDark className="w-full h-full lg:h-[220px]" />
+            ) : (
+              <RiveLight className="w-full h-full lg:h-[220px]" />
+            )}
           </div>
 
           <div className="flex flex-col gap-2 sm:gap-3 pl-0 sm:pl-4 lg:pl-6">
             <p className="text-xl sm:text-2xl lg:text-[1.7rem] font-extrabold text-[#454545] dark:text-[#E4E4E4]">
-              React Developer
+              {heroData.role}
             </p>
 
             <p className="text-sm sm:text-base lg:text-[1.2rem] font-light text-[#454545] dark:text-[#E4E4E4] flex flex-wrap items-center gap-1">
-              <span>React</span>
-              <span className="text-[#be29ec]">•</span>
-              <span>React Native</span>
-              <span className="text-[#be29ec]">•</span>
-              <span>Next.js</span>
+              {heroData.skills.map((skill, idx) => (
+                <React.Fragment key={skill}>
+                  <span>{skill}</span>
+                  {idx < heroData.skills.length - 1 && (
+                    <span className="text-[#be29ec]">•</span>
+                  )}
+                </React.Fragment>
+              ))}
             </p>
 
             {/* View Projects button */}
-            <button
+            <HeroButton
               onClick={scrollToProjects}
-              className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-full 
-                         bg-[#d6d6d6] dark:bg-[#222] text-[#161616] dark:text-gray-200 
-                         font-medium text-lg shadow-md border border-transparent dark:border-[#333] 
-                         hover:scale-105 hover:bg-[#cfcfcf] dark:hover:bg-[#333] 
-                         hover:border-[#be29ec] dark:hover:border-[#be29ec] 
-                         hover:text-[#be29ec] transition-all duration-300 w-max mt-3 sm:mt-4 lg:mt-4 pointer-events-auto"
-            >
-              <Folder className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
-              <span>View Projects</span>
-            </button>
+              icon={<Folder className="w-[18px] h-[18px] sm:w-5 sm:h-5" />}
+              label="View Projects"
+            />
           </div>
         </div>
       </div>

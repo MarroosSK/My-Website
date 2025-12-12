@@ -1,3 +1,9 @@
+export const projectsSectionText = {
+  title: "Projects",
+  description:
+    "A selection of apps I’ve built — mobile and web — focused on simple, helpful experiences.",
+};
+
 export const projects = [
   {
     id: "my-website",

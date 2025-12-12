@@ -9,7 +9,7 @@ export function ModeToggle() {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMounted(true);
+    setMounted(true); // Only render this component on the client to avoid hydration mismatche
   }, []);
 
   const toggleTheme = () => {

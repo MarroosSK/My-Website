@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { projects, projectsSectionText } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -10,11 +10,10 @@ export default function Projects() {
       {/* Nadpis a podnadpis */}
       <div className="w-full max-w-[1200px] mx-auto text-center mb-16">
         <h2 className="text-5xl sm:text-6xl font-extrabold text-[#454545] dark:text-[#E4E4E4]">
-          Projects
+          {projectsSectionText.title}
         </h2>
         <p className="text-[#454545]/70 dark:text-gray-400 mt-4 text-lg sm:text-xl max-w-[800px] mx-auto">
-          A selection of apps I’ve built — mobile and web — focused on simple,
-          helpful experiences.
+          {projectsSectionText.description}
         </p>
       </div>
 

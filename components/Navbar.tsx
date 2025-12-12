@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ModeToggle } from "./ModeToggler";
+import { ModeToggle } from "./buttons/ModeToggleButton";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -22,13 +22,12 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPos = window.scrollY + window.innerHeight / 2;
+      const middle = window.scrollY + window.innerHeight / 2;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && scrollPos >= section.offsetTop) {
-          setActiveId(section.id);
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const el = document.getElementById(navItems[i].id);
+        if (el && middle >= el.offsetTop) {
+          setActiveId(navItems[i].id);
           break;
         }
       }
@@ -36,6 +35,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
