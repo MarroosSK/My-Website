@@ -1,10 +1,28 @@
+export interface ProjectLink {
+  videoDemo?: string | null;
+  github?: string | null;
+  playStore?: string | null;
+  live?: string | null;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  type: string;
+  description: string;
+  stack: string[];
+  features?: string[];
+  preview?: string;
+  link: ProjectLink;
+}
+
 export const projectsSectionText = {
   title: "Projects",
   description:
     "A selection of apps I’ve built — mobile and web — focused on simple, helpful experiences.",
 };
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: "my-website",
     title: "My Website",
@@ -21,6 +39,7 @@ export const projects = [
     link: {
       videoDemo: null,
       github: "https://github.com/MarroosSK/My-Website",
+      playStore: null,
       live: null,
     },
   },
@@ -42,6 +61,7 @@ export const projects = [
       videoDemo: "/videos/tip.mp4",
       github: "https://github.com/MarroosSK/JustTip-App",
       playStore: null,
+      live: null,
     },
   },
   {
@@ -61,6 +81,8 @@ export const projects = [
     link: {
       videoDemo: "/videos/tea.mp4",
       github: "https://github.com/MarroosSK/JustTea-App",
+      playStore: null,
+      live: null,
     },
   },
   {
@@ -88,6 +110,8 @@ export const projects = [
     link: {
       videoDemo: "/videos/voda.mp4",
       github: "#",
+      playStore: null,
+      live: null,
     },
   },
   {
@@ -117,6 +141,8 @@ export const projects = [
     link: {
       videoDemo: "/videos/lieky.mp4",
       github: "#",
+      playStore: null,
+      live: null,
     },
   },
 ];

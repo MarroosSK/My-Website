@@ -26,12 +26,14 @@ export default function Projects() {
             className="group relative w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
           >
             <div className="relative w-full h-64 sm:h-72 lg:h-80">
-              <Image
-                src={project.preview}
-                alt={project.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              {project.preview && (
+                <Image
+                  src={project.preview}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
 
               {/* Názov / badge */}
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
